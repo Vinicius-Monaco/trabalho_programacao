@@ -1,20 +1,17 @@
 <?php
 
 require_once ('../db/Conexao.php');
-require_once ('../model/Usuario.php');
+require_once ('../models/Usuario.php');
 
-class UsuarioDAO
-{
+class UsuarioDAO {
   private $conexao;
 
-  public function __construct()
-  {
+  public function __construct() {
     $conexao = new Conexao();
     $this->conexao = $conexao->getConexao();
   }
 
-  public function salvaUsuario(Usuario $usuario)
-  {
+  public function salvaUsuario(Usuario $usuario) {
     $sql = "INSERT INTO Usuario (nome, email, senha, foto, data_nascimento, celular, data_cadastro, sys_whats, sys_email_confirmado, sys_confirmado_termos_de_uso) VALUES (:nome, :email, :senha, :foto, :data_nascimento, :celular, :data_cadastro, :sys_whats, :sys_email_confirmado, :sys_confirmado_termos_de_uso)";
     $stmt = $this->conexao->prepare($sql);
     $stmt->bindParam(":nome", $usuario->nome);
@@ -29,6 +26,14 @@ class UsuarioDAO
     $stmt->bindParam(":sys_confirmado_termos_de_uso", $usuario->sys_confirmado_termos_de_uso);
     return $stmt->execute();
   }
+
+  public function getUsuarios() {
+    $sql = "SELECT * FROM Usuario";
+    $stmt = $this->conexao->prepare($sql);
+    return $stmt->execute();
+  }
+
+  
 }
 
 ?>
