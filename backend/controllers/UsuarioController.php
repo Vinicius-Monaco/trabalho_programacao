@@ -11,16 +11,16 @@ class UsuarioController
   public function cadastraUsuario($dadosFormulario)
   {
     $usuario = new Usuario();
-    $usuario->nome = $dadosFormulario["nome"];
-    $usuario->email = $dadosFormulario["email"];
-    $usuario->senha = $dadosFormulario["senha"];
-    $usuario->foto = $dadosFormulario["foto"];
-    $usuario->data_nascimento = $dadosFormulario["data_nascimento"];
-    $usuario->celular = $dadosFormulario["celular"];
-    $usuario->data_cadastro = $dadosFormulario["data_cadastro"];
-    $usuario->sys_whats = $dadosFormulario["sys_whats"];
-    $usuario->sys_email_confirmado = $dadosFormulario["sys_email_confirmado"];
-    $usuario->sys_confirmado_termos_de_uso = $dadosFormulario["sys_confirmado_termos_de_uso"];
+    $usuario->getNome() = $dadosFormulario["nome"];
+    $usuario->getEmail() = $dadosFormulario["email"];
+    $usuario->getSenha() = $dadosFormulario["senha"];
+    $usuario->getFoto() = $dadosFormulario["foto"];
+    $usuario->getDataNascimento() = $dadosFormulario["data_nascimento"];
+    $usuario->getCelular() = $dadosFormulario["celular"];
+    $usuario->getDataCadastro() = $dadosFormulario["data_cadastro"];
+    $usuario->getSysWhats() = $dadosFormulario["sys_whats"];
+    $usuario->getSysEmailConfirmado() = $dadosFormulario["sys_email_confirmado"];
+    $usuario->getSysConfirmadoTermosDeUso() = $dadosFormulario["sys_confirmado_termos_de_uso"];
     $this->usuarioDAO->salvaUsuario($usuario);
   }
 }
