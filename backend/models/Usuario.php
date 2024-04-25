@@ -12,6 +12,18 @@
     private $sys_whats;
     private $sys_email_confirmado;
     private $sys_confirmado_termos_de_uso;
+
+    public function __get($var) {
+      if (property_exists($this, $var)) {
+        return $this->$var;
+      }
+    }
+
+    public function __set($atr, $var) {
+      if (property_exists($this, $atr)) {
+        $this->$atr = $var;
+      }
+    }
   }
 
 ?>
